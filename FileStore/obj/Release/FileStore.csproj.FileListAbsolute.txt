@@ -1,0 +1,7 @@
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\bin\Release\FileStore.dll
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\bin\Release\FileStore.pdb
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\obj\Release\FileStore.Resource.resources
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\obj\Release\FileStore.csproj.GenerateResource.cache
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\obj\Release\FileStore.csproj.CoreCompileInputs.cache
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\obj\Release\FileStore.dll
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\obj\Release\FileStore.pdb

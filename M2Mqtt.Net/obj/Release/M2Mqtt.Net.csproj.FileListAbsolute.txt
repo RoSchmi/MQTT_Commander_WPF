@@ -1,0 +1,6 @@
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\bin\Release\M2Mqtt.Net\M2Mqtt.Net.dll
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\bin\Release\M2Mqtt.Net\M2Mqtt.Net.pdb
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\M2Mqtt.Net\obj\Release\M2Mqtt.Net.csprojAssemblyReference.cache
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\M2Mqtt.Net\obj\Release\M2Mqtt.Net.csproj.CoreCompileInputs.cache
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\M2Mqtt.Net\obj\Release\M2Mqtt.Net.dll
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\M2Mqtt.Net\obj\Release\M2Mqtt.Net.pdb
