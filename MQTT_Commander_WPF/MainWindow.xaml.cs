@@ -24,6 +24,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using FileStore;
 using MQTT_Client.ViewModels;
+using System.Windows.Controls;
+using System.Security;
+
 
 
 // including the M2Mqtt Library
@@ -108,7 +111,6 @@ namespace MQTT_Commander_WPF
             Console.WriteLine("Certificate validated");
         }
  
-
         void setcolor()
         {
             btnPublish.Background = System.Windows.Media.Brushes.Green; 
@@ -118,7 +120,15 @@ namespace MQTT_Commander_WPF
         {
             base.OnClosed(e);
             App.Current.Shutdown();
-        }       
+        }
+      
+        private void P_w_d_Box_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var box = sender as PasswordBox;
+
+            UI_ViewModel.the_p_w_d = box.SecurePassword;
+            
+        }    
     }
 }
 

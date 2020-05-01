@@ -7,24 +7,24 @@
         mc:Ignorable="d"
         Title="RoSchmi MQTT-Commander" Height="760.295" Width="800">
     <Grid x:Name="Unsubscribe" Margin="0,0,0,-31">
-        <Button x:Name="btnSubscribe" Content="Subscribe" Command="{Binding Button_Subscribe_Clicked_Command}" HorizontalAlignment="Left" Margin="530,222,0,0" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="txtTopicSubscribe" Text="{Binding TopicSubscribe}" Visibility="{Binding TextBox_TopicsToSubsribe_Visibility}" HorizontalAlignment="Left" Height="23" Margin="143,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
+        <Button x:Name="btnSubscribe" Content="Subscribe" Command="{Binding Button_Subscribe_Clicked_Command}" HorizontalAlignment="Left" Margin="530,266,0,0" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="txtTopicSubscribe" Text="{Binding TopicSubscribe}" Visibility="{Binding TextBox_TopicsToSubsribe_Visibility}" HorizontalAlignment="Left" Height="23" Margin="141,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
         <TextBox x:Name="txtReceived" Text="{Binding ReceivedMessage}" HorizontalAlignment="Left" Height="23" Margin="143,406,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
-        <Button x:Name="btnPublish" Content="Publish" Command="{Binding Button_Publish_Clicked_Command}"  HorizontalAlignment="Left" Margin="530,300,0,0" VerticalAlignment="Top" Width="56" Height="21" />
-        <TextBox x:Name="txtTopicPublish" Text="{Binding TopicPublish}" Visibility="{Binding TextBox_TopicsToPublish_Visibility}" HorizontalAlignment="Left" Height="23" Margin="139,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
+        <Button x:Name="btnPublish" Content="Publish" Command="{Binding Button_Publish_Clicked_Command}"  HorizontalAlignment="Left" Margin="530,324,0,0" VerticalAlignment="Top" Width="56" Height="21" />
+        <TextBox x:Name="txtTopicPublish" Text="{Binding TopicPublish}" Visibility="{Binding TextBox_TopicsToPublish_Visibility}" HorizontalAlignment="Left" Height="23" Margin="139,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
         <TextBox x:Name="txtPublish" Text="{Binding MessagePublish}" Visibility="{Binding TextBox_Messages_Visibility}" HorizontalAlignment="Left" Height="23" Margin="143,367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
-        <Label Content="Topic to Subscribe" HorizontalAlignment="Left" Margin="13,216,0,0" VerticalAlignment="Top" Width="109"/>
-        <Label Content="Topic to Publish to" HorizontalAlignment="Left" Margin="13,295,0,0" VerticalAlignment="Top" Width="109"/>
+        <Label Content="Topic to Subscribe" HorizontalAlignment="Left" Margin="13,260,0,0" VerticalAlignment="Top" Width="109"/>
+        <Label Content="Topic to Publish to" HorizontalAlignment="Left" Margin="18,319,0,0" VerticalAlignment="Top" Width="109"/>
         <Label Content="Text Received" HorizontalAlignment="Left" Margin="21,403,0,0" VerticalAlignment="Top" Width="101"/>
         <Label Content="Text to publish" HorizontalAlignment="Left" Margin="21,364,0,0" VerticalAlignment="Top" Width="101"/>
-        <Button x:Name="btnUnSubscribe" Content="UnSubscribe" Command="{Binding Button_UnSubscribe_Clicked_Command}" HorizontalAlignment="Left" Margin="530,254,0,0" VerticalAlignment="Top" Width="85" />
+        <Button x:Name="btnUnSubscribe" Content="UnSubscribe" Command="{Binding Button_UnSubscribe_Clicked_Command}" HorizontalAlignment="Left" Margin="530,298,0,0" VerticalAlignment="Top" Width="85" />
         <TextBox x:Name="txtbox_Url" Text="{Binding ActualBrokerUrl}"  HorizontalAlignment="Left" Visibility="{Binding TextBox_Url_Visibility}"  Height="23" Margin="53,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="438"/>
         <Label Content="Url" HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top" Width="29"/>
         <Button x:Name="btnGet_Ip" Content="Get Ip Address" Command="{Binding Button_Update_IpAddress_clicked_Command}" HorizontalAlignment="Left" Margin="690,7,0,0" VerticalAlignment="Top" Width="92"/>
         <TextBox x:Name="txtIp_Address" Text="{Binding ActualBrokerIpAddress}" HorizontalAlignment="Left"  Height="23" Margin="550,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135"/>
         <Button x:Name="btn_Connect" Content="Connect" Background="{Binding ConnectColor}" HorizontalAlignment="Left" Margin="616,60,0,0" VerticalAlignment="Top" Width="85" Command="{Binding Button_Connect_Clicked_Command}"/>
         <TextBox x:Name="tbData" Text="{Binding TbDataText}" HorizontalAlignment="Left" Height="224" Margin="39,477,0,0"  IsReadOnlyCaretVisible="True" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" VerticalAlignment="Top" Width="711"/>
-        <Button x:Name="btn_Takeover" Content="Take over from Subscribe" HorizontalAlignment="Left" Margin="143,275,0,0" VerticalAlignment="Top" Width="155" Command="{Binding Button_Takeover_clicked_Command}"/>
+        <Button x:Name="btn_Takeover" Content="Take over from Subscribe" HorizontalAlignment="Left" Margin="143,295,0,0" VerticalAlignment="Top" Width="155" Command="{Binding Button_Takeover_clicked_Command}"/>
         <Button x:Name="btn_Disconnect" Content="Disconnect" Command="{Binding Button_Disconnect_Clicked_Command}" HorizontalAlignment="Left" Margin="706,60,0,0" VerticalAlignment="Top" Width="76"/>
         <Button x:Name="btnOpenCaCertDialog" Content="..." Command="{Binding Button_OpenCaCertDialog_Clicked_Command}" HorizontalAlignment="Left" Margin="254,139,0,0" VerticalAlignment="Top" Width="27"/>
         <ComboBox x:Name="ComboBox_Url" ItemsSource="{Binding BrokerAddresses}" SelectedItem="{Binding ActualBrokerUrlClient}" Visibility="{Binding ComboBox_Url_Visibility}"  HorizontalAlignment="Left" Margin="53,60,0,0" VerticalAlignment="Top" Width="438"/>
@@ -32,37 +32,40 @@
         <TextBox x:Name="txtbox_ClientCertPath" Text="{Binding ClientCertPath}" HorizontalAlignment="Left" Height="23" Margin="291,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
         <Button x:Name="btnOpenClientCertDialog" Content="..." Command="{Binding Button_OpenClientCertDialog_Clicked_Command}" HorizontalAlignment="Left" Margin="466,142,0,0" VerticalAlignment="Top" Width="27"/>
         <CheckBox Content="TLS Security" IsChecked="{Binding TLS_Security}"  HorizontalAlignment="Left" Margin="239,96,0,0" VerticalAlignment="Top" Height="20"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="286,166,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBox_Password" Text="{Binding Password}"  HorizontalAlignment="Left" Height="23" Margin="291,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="292,197,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBox_Password" Text="{Binding Password}"  HorizontalAlignment="Left" Height="23" Margin="291,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
         <Label Content="Port" HorizontalAlignment="Left" Margin="346,96,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="comboBox_Port" ItemsSource="{Binding Ports}" SelectedItem="{Binding SelectedPort}" HorizontalAlignment="Left" Margin="392,96,0,0" VerticalAlignment="Top" Width="99"/>
         <Button x:Name="btn_SaveAccountSettings" Content="Update Client" Command="{Binding Button_SaveAccountSettings_Clicked_Command}" CommandParameter="Update Selected Settings ?" Visibility="{Binding BtnUpdateAccount_Visibility}"  HorizontalAlignment="Left" Margin="150,7,0,0" VerticalAlignment="Top" Width="99" Height="20"/>
         <TextBox x:Name="txtBox_ClientName" Text="{Binding ClientName}" HorizontalAlignment="Left" Height="23" Margin="53,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149"/>
-        <TextBox x:Name="txtBox_User" Text="{Binding User}" HorizontalAlignment="Left" Height="23" Margin="53,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
+        <TextBox x:Name="txtBox_User" Text="{Binding User}" HorizontalAlignment="Left" Height="23" Margin="53,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
         <Button x:Name="btn_New" Content="New Client" Command="{Binding Button_NewAccount_Clicked_Command}" Visibility="{Binding BtnNewAccount_Visibility}" HorizontalAlignment="Left" Margin="53,7,0,0" VerticalAlignment="Top" Width="91"/>
         <Button x:Name="btn_Create" Content="Create" Command="{Binding Button_CreateAccount_Clicked_Command}" Visibility="{Binding BtnCreate_Visibility}" HorizontalAlignment="Left" Margin="346,7,0,0" VerticalAlignment="Top" Width="65"/>
         <Button x:Name="btn_DeleteAccount" Content="Delete Client" Command="{Binding Button_DeleteAccount_Clicked_Command}" CommandParameter="Delete Selected Settings ?"  Visibility="{Binding BtnDeleteAccount_Visibility}" HorizontalAlignment="Left" Margin="254,7,0,0" VerticalAlignment="Top" Width="98"/>
         <Button x:Name="btn_CancelAccount" Content="Cancel" Command="{Binding Button_CancelAccount_Clicked_Command}" Visibility="{Binding BtnCancelAccount_Visibility}" HorizontalAlignment="Left" Margin="416,7,0,0" VerticalAlignment="Top" Width="75"/>
-        <ComboBox x:Name="ComboBox_TopicsToSubsribe"  Visibility="{Binding ComboBox_TopicsToSubsribe_Visibility}" ItemsSource="{Binding TopicsToSubscribeCollection}" DisplayMemberPath="Text" SelectedItem="{Binding TopicSubscribeShadow}" HorizontalAlignment="Left" Margin="139,220,0,0" VerticalAlignment="Top" Width="354"/>
-        <Button x:Name="btn_Change_TopicSubscribe"   Content="..." Command="{Binding Button_ChangeTopicSubscribe_Clicked_Command}" HorizontalAlignment="Left" Margin="500,222,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.675,-0.408"/>
-        <ComboBox x:Name="ComboBox_TopicsToPublish" Visibility="{Binding ComboBox_TopicsToPublish_Visibility}" ItemsSource="{Binding TopicsToPublishCollection}" DisplayMemberPath="Text" SelectedItem="{Binding TopicPublishShadow}" HorizontalAlignment="Left" Margin="141,301,0,0" VerticalAlignment="Top" Width="356"/>
-        <Button x:Name="btn_Change_TopicPublish" Content="..." Command="{Binding Button_ChangeTopicPublish_Clicked_Command}" HorizontalAlignment="Left" Margin="501,301,0,0" VerticalAlignment="Top" Width="21"/>
-        <CheckBox x:Name="checkBox_publish_Retain" Content="Retain" IsChecked="{Binding Publish_Retain}" HorizontalAlignment="Left" Margin="595,306,0,0" VerticalAlignment="Top"/>
-        <Label Content="QoSLevel" HorizontalAlignment="Left" Margin="653,275,0,0" VerticalAlignment="Top" Width="80"/>
+        <ComboBox x:Name="ComboBox_TopicsToSubsribe"  Visibility="{Binding ComboBox_TopicsToSubsribe_Visibility}" ItemsSource="{Binding TopicsToSubscribeCollection}" DisplayMemberPath="Text" SelectedItem="{Binding TopicSubscribeShadow}" HorizontalAlignment="Left" Margin="141,264,0,0" VerticalAlignment="Top" Width="354"/>
+        <Button x:Name="btn_Change_TopicSubscribe"   Content="..." Command="{Binding Button_ChangeTopicSubscribe_Clicked_Command}" HorizontalAlignment="Left" Margin="499,263,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.675,-0.408"/>
+        <ComboBox x:Name="ComboBox_TopicsToPublish" Visibility="{Binding ComboBox_TopicsToPublish_Visibility}" ItemsSource="{Binding TopicsToPublishCollection}" DisplayMemberPath="Text" SelectedItem="{Binding TopicPublishShadow}" HorizontalAlignment="Left" Margin="141,323,0,0" VerticalAlignment="Top" Width="356"/>
+        <Button x:Name="btn_Change_TopicPublish" Content="..." Command="{Binding Button_ChangeTopicPublish_Clicked_Command}" HorizontalAlignment="Left" Margin="501,323,0,0" VerticalAlignment="Top" Width="21"/>
+        <CheckBox x:Name="checkBox_publish_Retain" Content="Retain" IsChecked="{Binding Publish_Retain}" HorizontalAlignment="Left" Margin="591,327,0,0" VerticalAlignment="Top"/>
+        <Label Content="QoSLevel" HorizontalAlignment="Left" Margin="653,292,0,0" VerticalAlignment="Top" Width="80"/>
         <CheckBox x:Name="checkBox_CleanSession" Content="Clean Sess." IsChecked="{Binding Connect_CleanSession}" HorizontalAlignment="Left" Margin="530,60,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="ComboBox_Messages" Visibility="{Binding ComboBox_Messages_Visibility}" ItemsSource="{Binding MessagesCollection}" DisplayMemberPath="Text" SelectedItem="{Binding MessageShadow}"  HorizontalAlignment="Left" Margin="143,368,0,0" VerticalAlignment="Top" Width="354"/>
         <Button x:Name="btn_Change_Messages" Content="..." Command="{Binding Button_ChangeMessages_Clicked_Command}"  HorizontalAlignment="Left" Margin="502,368,0,0" VerticalAlignment="Top" Width="20"/>
-        <ComboBox x:Name="comboBox_QosLevels_Subscribe" ItemsSource="{Binding QoSLevelsCollectionSubscribe}" SelectedItem="{Binding SelectedSubscribeQoSLevel}" HorizontalAlignment="Left" Margin="653,222,0,0" VerticalAlignment="Top" Width="113"/>
-        <ComboBox x:Name="comboBox_QoSLevels" ItemsSource="{Binding QoSLevelsCollection}" SelectedItem="{Binding SelectedPuplishQoSLevel}"  HorizontalAlignment="Left" Margin="653,301,0,0" VerticalAlignment="Top" Width="113"/>
-        <Label Content="QoSLevel" HorizontalAlignment="Left" Margin="653,198,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox_QosLevels_Subscribe" ItemsSource="{Binding QoSLevelsCollectionSubscribe}" SelectedItem="{Binding SelectedSubscribeQoSLevel}" HorizontalAlignment="Left" Margin="653,266,0,0" VerticalAlignment="Top" Width="113"/>
+        <ComboBox x:Name="comboBox_QoSLevels" ItemsSource="{Binding QoSLevelsCollection}" SelectedItem="{Binding SelectedPuplishQoSLevel}"  HorizontalAlignment="Left" Margin="653,323,0,0" VerticalAlignment="Top" Width="113"/>
+        <Label Content="QoSLevel" HorizontalAlignment="Left" Margin="653,235,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox_BrokerMessages" Content="Show Broker Messages" IsChecked="{Binding ShowBrokerMessages}" HorizontalAlignment="Left" Margin="53,449,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox_ShowClientMessages" Content="Show Client Messages" IsChecked="{Binding ShowClientMessages}" HorizontalAlignment="Left" Margin="208,452,0,0" VerticalAlignment="Top"/>
         <Label Content="Client" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top"/>
         <Label Content="Client-Id" HorizontalAlignment="Left" Margin="0,88,0,0" VerticalAlignment="Top"/>
         <Label Content="CaCert-Path" HorizontalAlignment="Left" Margin="53,114,0,0" VerticalAlignment="Top"/>
         <Label Content="ClientCert-Path (for AWS .pfx format)" HorizontalAlignment="Left" Margin="291,118,0,0" VerticalAlignment="Top"/>
-        <Label Content="User-Name" HorizontalAlignment="Left" Margin="52,166,0,0" VerticalAlignment="Top"/>
+        <Label Content="User-Name" HorizontalAlignment="Left" Margin="53,197,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_Help" Content="Help" Command="{Binding Button_Help_Clicked_Command}" HorizontalAlignment="Left" Margin="499,7,0,0" VerticalAlignment="Top" Width="46"/>
-        <GroupBox Header="" HorizontalAlignment="Left" Height="228" VerticalAlignment="Top" Width="497" Margin="0,-12,0,0"/>
+        <GroupBox Header="" HorizontalAlignment="Left" Height="267" VerticalAlignment="Top" Width="497" Margin="0,-12,0,0">
+            <PasswordBox x:Name="p_w_d_Box" PasswordChanged="P_w_d_Box_PasswordChanged"  HorizontalAlignment="Left" Margin="284,163,-2,-35" VerticalAlignment="Top" Width="203" Height="23"/>
+        </GroupBox>
+        <Label Content="ClientCert. Password" HorizontalAlignment="Left" Margin="163,164,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -34,4 +34,3 @@ C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\obj\Rele
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\obj\Release\MQTT_Commander_WPF.csproj.CopyComplete
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\obj\Release\MQTT_Commander_WPF.exe
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\obj\Release\MQTT_Commander_WPF.pdb
-C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\obj\Release\MQTT_Commander_WPF.csprojAssemblyReference.cache

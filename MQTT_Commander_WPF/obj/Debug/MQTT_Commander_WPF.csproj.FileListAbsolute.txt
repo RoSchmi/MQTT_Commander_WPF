@@ -1,7 +1,6 @@
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\bin\Debug\MQTT_Commander_WPF.exe.config
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\bin\Debug\MQTT_Commander_WPF.exe
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\bin\Debug\MQTT_Commander_WPF.pdb
-C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\bin\Debug\M2Mqtt.Net.dll
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\bin\Debug\System.Buffers.dll
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\bin\Debug\System.Memory.dll
@@ -34,3 +33,4 @@ C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\obj\Debu
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\obj\Debug\MQTT_Commander_WPF.csproj.CopyComplete
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\obj\Debug\MQTT_Commander_WPF.exe
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\obj\Debug\MQTT_Commander_WPF.pdb
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\MQTT_Commander_WPF\bin\Debug\M2Mqtt.Net.dll

@@ -3,3 +3,4 @@ C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\bin\Debug\M2Mqtt.Net\M2Mqtt
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\M2Mqtt.Net\obj\Debug\M2Mqtt.Net.csproj.CoreCompileInputs.cache
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\M2Mqtt.Net\obj\Debug\M2Mqtt.Net.dll
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\M2Mqtt.Net\obj\Debug\M2Mqtt.Net.pdb
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\M2Mqtt.Net\obj\Debug\M2Mqtt.Net.csprojAssemblyReference.cache

@@ -5,3 +5,4 @@ C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\obj\Release\FileS
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\obj\Release\FileStore.csproj.CoreCompileInputs.cache
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\obj\Release\FileStore.dll
 C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\obj\Release\FileStore.pdb
+C:\Users\Roland\source\VS2019Proj\MQTT_Commander_WPF\FileStore\obj\Release\FileStore.csprojAssemblyReference.cache

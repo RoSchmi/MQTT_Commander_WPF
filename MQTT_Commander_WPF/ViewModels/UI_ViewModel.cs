@@ -1,4 +1,4 @@
-﻿// MQTT_Commander_WPF: Copyright RoSchmi 2020, License Apache V 2.0
+﻿// MQTT_Commander_WPF: Copyright RoSchmi  May 2020, License Apache V 2.0
 //
 // M2Mqtt.Net Library is Copyright (c) 2013, 2014 Paolo Patierno
 // Eclipse Public License v1.0, Eclipse Distribution License v1.0
@@ -22,6 +22,11 @@
 // https://gist.github.com/adrenalinehit/b33994a4d430b26747ac#file-converting-to-pfx-using-openssl
 // openssl pkcs12 -export -out YOURPFXFILE.pfx -inkey *****-private.pem.key -in *****-certificate.pem.crt
 
+// https://www.wpf-tutorial.com/basic-controls/the-passwordbox-control/
+// blog.functionalfun.net/2008/06/wpf-passwordbox-and-data-binding.html
+// https://gigi.nullneuron.net/gigilabs/security-risk-in-binding-wpf-passwordbox-password/
+//
+// https://www.codeproject.com/Tips/549109/Working-with-SecureString
 
 
 
@@ -47,6 +52,8 @@ using MQTT_Commander_WPF;
 using MQTT_Client.Models;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Security;
+//using System.Runtime.InteropServices;
 
 namespace MQTT_Client.ViewModels
 {
@@ -149,6 +156,8 @@ namespace MQTT_Client.ViewModels
 
         private string _password;
 
+        public static SecureString the_p_w_d;
+
         private string _actualBrokerIpAddress;
 
         private string _selectedPort;
@@ -213,6 +222,8 @@ namespace MQTT_Client.ViewModels
 
         private Visibility _comboBox_Messages_Visibility;
 
+        
+            
 
         MqttManager myMqttManager;
         #endregion
@@ -236,10 +247,9 @@ namespace MQTT_Client.ViewModels
             }
 
             if (!File.Exists(fileAccounts))
-            {
-                accountsDictionary.Add("test.mosquitto.org -&- myPcClient", new AccountMembers(null, "myPcClient", false, "", "", "", "", "1883"));                
-                accountsDictionary.Add("a4-example_9mj-ats.iot.eu-central-1.amazonaws.com  -&- myAwsClient_No_1", new AccountMembers(null, "myAwsClient_No_1", true, "", "", "", "", "8883"));
-
+            {                
+                accountsDictionary.Add("test.mosquitto.org -&- myPcClient", new AccountMembers(null, "myPcClient", false, "", "", "", "", null, "1883"));
+                accountsDictionary.Add("a4-example_9mj-ats.iot.eu-central-1.amazonaws.com  -&- myAwsClient_No_1", new AccountMembers(null, "myAwsClient_No_1", true, "", "", "", "", null, "8883"));
                 WriteAccountsDictionaryToFile(accountsDictionary, fileAccounts);
             }
             else
@@ -1158,6 +1168,32 @@ namespace MQTT_Client.ViewModels
         #endregion
 
 
+       
+
+          #region Binding The_p_w_d
+        public SecureString The_p_w_d
+        {
+            get
+            {
+                return the_p_w_d;
+            }
+            set
+            {
+                if (SetProperty(ref the_p_w_d, value))
+                {
+                    try
+                    {                      
+                        _clientCert = new X509Certificate2(ClientCertPath, the_p_w_d);
+                    }
+                    catch
+                    {
+                            _clientCert = null;
+                    }    
+                }
+            }
+
+        }
+        #endregion
 
         #region Binding ConnectColor
         public System.Windows.Media.Brush ConnectColor
@@ -1363,17 +1399,7 @@ namespace MQTT_Client.ViewModels
             set
             {
                 if (SetProperty(ref _password, value))
-                {
-                    try
-                    {                       
-                        _clientCert = new X509Certificate2(ClientCertPath, Password);
-                    }
-                    catch
-                    {
-                        _clientCert = null;
-                    }
-
-                }
+                { }                 
             }
         }
         #endregion
@@ -1825,8 +1851,8 @@ namespace MQTT_Client.ViewModels
                 if (SetProperty(ref _clientCertPath, value))
                 {
                     try
-                    {                      
-                        _clientCert = new X509Certificate2(ClientCertPath, Password);
+                    {
+                        _clientCert = new X509Certificate2(ClientCertPath, the_p_w_d);                     
                     }
                     catch
                     {
@@ -1872,8 +1898,22 @@ namespace MQTT_Client.ViewModels
 
         #region Method Update_AccountMembers_From_Gui
         private void Update_AccountMembers_From_Gui(string pBrokerUrl, bool pHaveIpAddress)
-        {           
-            AccountMembers members = new AccountMembers(null, ClientName ?? "myPcClient", TLS_Security, CaCertPath ?? "", ClientCertPath ?? "", User ?? "", Password ?? "", SelectedPort ?? (TLS_Security ? "8883" : "1883"));
+        {
+            //AccountMembers members = new AccountMembers(null, ClientName ?? "myPcClient", TLS_Security, CaCertPath ?? "", ClientCertPath ?? "", User ?? "", Password ?? "", SelectedPort ?? (TLS_Security ? "8883" : "1883"));
+            AccountMembers members = new AccountMembers(null, ClientName ?? "myPcClient", TLS_Security, CaCertPath ?? "", ClientCertPath ?? "", User ?? "", Password ?? "", the_p_w_d, SelectedPort ?? (TLS_Security ? "8883" : "1883"));
+
+            if (_clientCert == null)
+            {
+                try
+                {
+                    _clientCert = new X509Certificate2(ClientCertPath, the_p_w_d);
+                }
+                catch
+                {
+                    _clientCert = null;
+                }
+            }
+
 
             string localBrokerUrl = pHaveIpAddress ? pBrokerUrl : null;
             string localActualBrokerUrlClient = pBrokerUrl + " -&- " + ClientName;
@@ -1904,8 +1944,9 @@ namespace MQTT_Client.ViewModels
                 CaCertPath = members.CaCertPath;
                 ClientCertPath = members.ClientCertPath;
                 TLS_Security = members.Security;
-                User = members.User;
+                User = members.User;             
                 Password = members.Password;
+                the_p_w_d = members.CertPassword;
                 SelectedPort = members.Port;
                 ClientName = members.Name;
             }
@@ -1914,7 +1955,8 @@ namespace MQTT_Client.ViewModels
                 string actualBrokerUrl = pBrokerUrlClient.Substring(0, pBrokerUrlClient.LastIndexOf("-&-") - 1);
                 string client = pBrokerUrlClient.Substring(pBrokerUrlClient.LastIndexOf("-&-") + 4);
                 string localBrokerUrl = pHaveIpAddress ? ActualBrokerUrl : null;
-                accountsDictionary.Add(pBrokerUrlClient, new AccountMembers(new MqttManager(localBrokerUrl, client ?? "", TLS_Security, int.Parse(SelectedPort ?? (TLS_Security ? "8883" : "1883")), _caCert, _clientCert, MqttSslProtocols.TLSv1_2), client ?? "", TLS_Security, CaCertPath ?? "", ClientCertPath ?? "", User ?? "", Password ?? "", SelectedPort ?? (TLS_Security ? "8883" : "1883")));
+               
+                accountsDictionary.Add(pBrokerUrlClient, new AccountMembers(new MqttManager(localBrokerUrl, client ?? "", TLS_Security, int.Parse(SelectedPort ?? (TLS_Security ? "8883" : "1883")), _caCert, _clientCert, MqttSslProtocols.TLSv1_2), client ?? "", TLS_Security, CaCertPath ?? "", ClientCertPath ?? "", User ?? "", Password ?? "", the_p_w_d , SelectedPort ?? (TLS_Security ? "8883" : "1883")));
             }          
         }
         #endregion
@@ -1936,8 +1978,8 @@ namespace MQTT_Client.ViewModels
                 // Write pairs.
                 foreach (var pair in dictionary)
                 {
-                    writer.Write(pair.Key);
-                    AccountMembers members = new AccountMembers(null, pair.Value.Name, pair.Value.Security, pair.Value.CaCertPath, pair.Value.ClientCertPath, "", "", pair.Value.Port);                    
+                    writer.Write(pair.Key);                   
+                    AccountMembers members = new AccountMembers(null, pair.Value.Name, pair.Value.Security, pair.Value.CaCertPath, pair.Value.ClientCertPath, "", "", null, pair.Value.Port);
                     writer.Write(JsonSerializer.Serialize<AccountMembers>(members));
                 }
             }
@@ -2018,6 +2060,24 @@ namespace MQTT_Client.ViewModels
             }
             return result;
         }
+        #endregion
+
+        #region Method convertToUNSecureString   (commented out, not used in this App)
+        /*
+        public string convertToUNSecureString(SecureString secstrPassword)
+        {
+            IntPtr unmanagedString = IntPtr.Zero;
+            try
+            {
+                unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secstrPassword);
+                return Marshal.PtrToStringUni(unmanagedString);
+            }
+            finally
+            {
+                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+            }
+        }
+        */
         #endregion
 
         #region Method OnWindowClosing
