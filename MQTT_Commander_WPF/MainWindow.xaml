@@ -9,7 +9,7 @@
     <Grid x:Name="Unsubscribe" Margin="0,0,0,-31">
         <Button x:Name="btnSubscribe" Content="Subscribe" Command="{Binding Button_Subscribe_Clicked_Command}" HorizontalAlignment="Left" Margin="530,266,0,0" VerticalAlignment="Top" Width="85" />
         <TextBox x:Name="txtTopicSubscribe" Text="{Binding TopicSubscribe}" Visibility="{Binding TextBox_TopicsToSubsribe_Visibility}" HorizontalAlignment="Left" Height="23" Margin="141,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
-        <TextBox x:Name="txtReceived" Text="{Binding ReceivedMessage}" HorizontalAlignment="Left" Height="23" Margin="143,406,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
+        <TextBox x:Name="txtReceived" Text="{Binding ReceivedMessage}" HorizontalAlignment="Left" Height="38" Margin="143,406,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
         <Button x:Name="btnPublish" Content="Publish" Command="{Binding Button_Publish_Clicked_Command}"  HorizontalAlignment="Left" Margin="530,324,0,0" VerticalAlignment="Top" Width="56" Height="21" />
         <TextBox x:Name="txtTopicPublish" Text="{Binding TopicPublish}" Visibility="{Binding TextBox_TopicsToPublish_Visibility}" HorizontalAlignment="Left" Height="23" Margin="139,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
         <TextBox x:Name="txtPublish" Text="{Binding MessagePublish}" Visibility="{Binding TextBox_Messages_Visibility}" HorizontalAlignment="Left" Height="23" Margin="143,367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
